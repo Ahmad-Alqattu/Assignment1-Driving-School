@@ -13,6 +13,12 @@ public class MainActivity extends AppCompatActivity {
         //sfdads
 ///fdghghgdfh
         //hala
-        //sajed sxcs
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }
