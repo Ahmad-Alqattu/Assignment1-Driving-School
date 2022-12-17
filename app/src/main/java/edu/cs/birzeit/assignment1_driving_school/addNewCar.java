@@ -22,12 +22,12 @@ public class addNewCar extends AppCompatActivity {
         edit3 = findViewById(R.id.edit3);
         edit4 = findViewById(R.id.edit4);
     }
-
+    CarData newData = null;
     public void btnNewCar(View view) {
         String edt2 = edit2.getText().toString();
         String edt3 = edit2.getText().toString();
         String edt4 = edit2.getText().toString();
-        CarData newData = null;
+
         if(!edt2.isEmpty() && !edt3.isEmpty() && !edt4.isEmpty() ){
             newData.item.add(new Car(edt2,edt3,edt4));
         }
