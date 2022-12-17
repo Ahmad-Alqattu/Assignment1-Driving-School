@@ -33,7 +33,7 @@ public class addNewCar extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You Should full all Data", Toast.LENGTH_SHORT).show();
         }
         
     }
