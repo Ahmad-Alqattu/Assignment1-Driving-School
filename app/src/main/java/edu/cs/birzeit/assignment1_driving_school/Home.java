@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class Home extends AppCompatActivity {
 String s1[];
@@ -21,5 +22,8 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
         myAdabt myadabt= new myAdabt(this,s1,img);
         category_btn.setAdapter(myadabt);
         category_btn.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    public void btnCar(View view) {
     }
 }
