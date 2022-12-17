@@ -17,7 +17,7 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         s1=getResources().getStringArray(R.array.cat_btn);
-        category_btn=findViewById(R.id.recyclerView);
+//        category_btn=findViewById(R.id.recyclerView);
         myAdabt myadabt= new myAdabt(this,s1,img);
         category_btn.setAdapter(myadabt);
         category_btn.setLayoutManager(new LinearLayoutManager(this));
