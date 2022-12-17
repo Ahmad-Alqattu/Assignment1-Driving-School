@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class Home extends AppCompatActivity {
 String s1[];
@@ -16,10 +18,15 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        s1=getResources().getStringArray(R.array.cat_btn);
+//        s1=getResources().getStringArray(R.array.cat_btn);
 //        category_btn=findViewById(R.id.recyclerView);
-        myAdabt myadabt= new myAdabt(this,s1,img);
-        category_btn.setAdapter(myadabt);
-        category_btn.setLayoutManager(new LinearLayoutManager(this));
+//        myAdabt myadabt= new myAdabt(this,s1,img);
+//        category_btn.setAdapter(myadabt);
+//        category_btn.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    public void btnCar(View view) {
+        Intent vCar = new Intent( this,viewCar.class);
+        startActivity(vCar);
     }
 }
