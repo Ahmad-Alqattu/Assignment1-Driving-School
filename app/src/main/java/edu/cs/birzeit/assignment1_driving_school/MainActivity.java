@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(view);
                 finish();
             }
-        }, 7000);
+        }, 5000);
 
 
     }

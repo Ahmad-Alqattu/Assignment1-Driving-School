@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
     public void subLog(View view) {
         Intent v= new Intent( Login.this,Home.class);
         startActivity(v);
-        finish();
+
 
     }
 }
