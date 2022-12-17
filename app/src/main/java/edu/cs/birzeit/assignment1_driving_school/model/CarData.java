@@ -5,7 +5,7 @@ import java.util.List;
 
     public class CarData implements  InfoCar{
 
-    List<Car> item;
+   public List<Car> item;
 
     public CarData(){
         item = new ArrayList<>();
