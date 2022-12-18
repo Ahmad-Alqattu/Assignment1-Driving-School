@@ -9,4 +9,12 @@
 
     </string-array>
 
+    <string-array name="fule">
+        <item>Gasoline</item>
+        <item>diesel</item>
+        <item>electric</item>
+        <item>hybrid</item>
+
+    </string-array>
+
 </resources>

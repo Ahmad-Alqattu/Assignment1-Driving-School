@@ -18,9 +18,9 @@ public class addNewCar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_car);
-        edit2 = findViewById(R.id.edit2);
-        edit3 = findViewById(R.id.edit3);
-        edit4 = findViewById(R.id.edit4);
+//        edit2 = findViewById(R.id.edit2);
+//        edit3 = findViewById(R.id.edit3);
+//        edit4 = findViewById(R.id.edit3);
     }
 
     public void btnNewCar(View view) {
