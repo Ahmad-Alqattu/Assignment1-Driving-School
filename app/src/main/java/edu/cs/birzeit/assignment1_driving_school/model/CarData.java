@@ -18,18 +18,18 @@ import java.util.List;
 
     public CarData(){
         item = new ArrayList<>();
-        item.add(new Car("Hyundai Accent 2014","diesel","gear"));
-        item.add(new Car("Hyundai Accent 2022","benzin","automatic"));
+        item.add(new Car("Hyundai Accent 2014","diesel","277-888-999","gear"));
+        item.add(new Car("Hyundai Accent 2022","benzin","277-888-555","automatic"));
 
-        item.add(new Car("Skoda","diesel","gear"));
-        item.add(new Car("skoda","benzin","automatic"));
+        item.add(new Car("Skoda","diesel","277-111-333","gear"));
+        item.add(new Car("skoda","benzin","277-111-333","automatic"));
 
-        item.add(new Car("kia","diesel","gear"));
-        item.add(new Car("kia","benzin","automatic"));
+        item.add(new Car("kia","diesel","222-111-000","gear"));
+        item.add(new Car("kia","benzin","666-111-444","automatic"));
 
-        item.add(new Car("Motorcycle","benzin","gear"));
+        item.add(new Car("Motorcycle","benzin","666-111-777","gear"));
 
-        item.add(new Car("bus","diesel","gear"));
+        item.add(new Car("bus","diesel","225-178-458","gear"));
 
     }
 

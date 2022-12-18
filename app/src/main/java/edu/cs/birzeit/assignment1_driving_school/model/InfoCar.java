@@ -4,5 +4,6 @@ import java.util.List;
 
 public interface InfoCar {
     List<String> getCategories();
+
     List<Car> getItems(String cat);
 }

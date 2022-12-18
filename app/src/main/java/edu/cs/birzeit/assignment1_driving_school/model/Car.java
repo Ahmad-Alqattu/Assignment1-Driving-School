@@ -4,11 +4,12 @@ public class Car {
     private String carName;
     private String fuelType ;
     private String typeLicense;
-
-    public Car(String carName, String fuelType, String typeLicense) {
+    private String plateNo;
+    public Car(String carName, String fuelType,String plateNo ,String typeLicense) {
         this.carName = carName;
         this.fuelType = fuelType;
         this.typeLicense = typeLicense;
+        this.plateNo = plateNo;
     }
 
     public String getCarName() {
@@ -35,12 +36,21 @@ public class Car {
         this.typeLicense = typeLicense;
     }
 
+    public String getPlateNo() {
+        return plateNo;
+    }
+
+    public void setPlateNo(String plateNo) {
+        this.plateNo = plateNo;
+    }
+
     @Override
     public String toString() {
-        return "CarData{" +
+        return "Car{" +
                 "carName='" + carName + '\'' +
                 ", fuelType='" + fuelType + '\'' +
                 ", typeLicense='" + typeLicense + '\'' +
+                ", plateNo='" + plateNo + '\'' +
                 '}';
     }
 }
