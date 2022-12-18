@@ -5,12 +5,21 @@ import java.util.List;
 
     public class CarData implements  InfoCar{
 
-   public List<Car> item;
+        public static CarData cardata_1;
+        public static CarData getInstance()
+        {
+            if (cardata_1 == null)
+                cardata_1 = new CarData();
+
+            return cardata_1;
+        }
+
+   public static List<Car> item;
 
     public CarData(){
         item = new ArrayList<>();
-        item.add(new Car("Hyundai Accent","diesel","gear"));
-        item.add(new Car("Hyundai Accent","benzin","automatic"));
+        item.add(new Car("Hyundai Accent 2014","diesel","gear"));
+        item.add(new Car("Hyundai Accent 2022","benzin","automatic"));
 
         item.add(new Car("Skoda","diesel","gear"));
         item.add(new Car("skoda","benzin","automatic"));
@@ -26,13 +35,12 @@ import java.util.List;
 
 
         @Override
-        public List<String> getCategories() {
+        public  List<String> getCategories() {
             List<String> cat = new ArrayList<>();
-            cat.add("Hyundai Accent");
-            cat.add("Skoda");
-            cat.add("kia");
-            cat.add("Motorcycle");
-            cat.add("bus");
+            for (Car i : item) {
+                cat.add(i.getCarName());
+                }
+
             return  cat;
         }
 
