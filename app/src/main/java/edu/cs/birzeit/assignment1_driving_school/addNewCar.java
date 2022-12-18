@@ -3,6 +3,8 @@ package edu.cs.birzeit.assignment1_driving_school;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,7 +23,23 @@ public class addNewCar extends AppCompatActivity {
 //        edit2 = findViewById(R.id.edit2);
 //        edit3 = findViewById(R.id.edit3);
 //        edit4 = findViewById(R.id.edit3);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
+    }
+
 
     public void btnNewCar(View view) {
         String edt2 = edit2.getText().toString();
@@ -33,6 +51,8 @@ public class addNewCar extends AppCompatActivity {
             Toast.makeText(this, CarData.getInstance().item.toString(), Toast.LENGTH_SHORT).show();
 
             CarData.getInstance().item.add(new Car(edt2,edt3,edt4));
+            Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
+
         }
         else
         {

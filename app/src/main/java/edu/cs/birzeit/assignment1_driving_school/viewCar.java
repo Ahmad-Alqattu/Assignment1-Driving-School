@@ -53,7 +53,6 @@ public class viewCar extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         List<String> cats = CarData.getInstance().getCategories();
-        Toast.makeText(this, cats.toString(), Toast.LENGTH_SHORT).show();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item,cats);
