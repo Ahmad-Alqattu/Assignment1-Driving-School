@@ -52,7 +52,7 @@ public class addNewCar extends AppCompatActivity {
 
             CarData.getInstance().item.add(new Car(edt2,edt3,edt4));
             Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
-
+           finish();
         }
         else
         {
