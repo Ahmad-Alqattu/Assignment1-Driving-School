@@ -25,9 +25,9 @@ public class addNewCar extends AppCompatActivity {
 
     public void btnNewCar(View view) {
         String edt2 = edit2.getText().toString();
-        String edt3 = edit3.getText().toString();
-        String edt4 = edit4.getText().toString();
-
+        String edt3 = edit2.getText().toString();
+        String edt4 = edit2.getText().toString();
+        CarData newData = null;
         if(!edt2.isEmpty() && !edt3.isEmpty() && !edt4.isEmpty() ){
 
             Toast.makeText(this, CarData.getInstance().item.toString(), Toast.LENGTH_SHORT).show();
