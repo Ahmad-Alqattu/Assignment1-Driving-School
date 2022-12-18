@@ -2,8 +2,11 @@ package edu.cs.birzeit.assignment1_driving_school;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,23 +20,38 @@ import edu.cs.birzeit.assignment1_driving_school.model.Car;
 import edu.cs.birzeit.assignment1_driving_school.model.CarData;
 
 public class viewCar extends AppCompatActivity {
+    private Context context;
 
     private Spinner spinner;
     private ListView listView;
     private CarData data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_car);
         spinner = findViewById(R.id.spinner);
         listView = findViewById(R.id.listView);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-
         List<String> cats = CarData.getInstance().getCategories();
         Toast.makeText(this, cats.toString(), Toast.LENGTH_SHORT).show();
 
@@ -51,8 +69,9 @@ public class viewCar extends AppCompatActivity {
     }
 
     public void btnAddCar(View view) {
-        Intent vAddCar = new Intent( this,addNewCar.class);
-        startActivity(vAddCar);
+        context= this;
+        Intent vAddCar = new Intent( context,addNewCar.class);
+        context.startActivity(vAddCar);
     }
 
 

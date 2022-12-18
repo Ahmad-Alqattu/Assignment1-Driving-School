@@ -14,25 +14,24 @@
         tools:targetApi="31">
         <activity
             android:name=".addNewCar"
-            android:exported="false">
+            android:exported="false"
+            android:label="add Car"
+            >
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".viewCar"
-            android:exported="false">
+            android:exported="false"
+            android:label="Cars"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".MainPage"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".Login"
             android:exported="false">
@@ -42,9 +41,12 @@
         </activity>
         <activity
             android:name=".Home"
-            android:exported="false">
+            android:exported="false"
+            android:label="Home"
+            >
             <meta-data
                 android:name="android.app.lib_name"
+
                 android:value="" />
         </activity>
         <activity
