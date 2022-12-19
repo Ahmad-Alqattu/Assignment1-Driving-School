@@ -11,13 +11,13 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import edu.cs.birzeit.assignment1_driving_school.model.CarData;
 import edu.cs.birzeit.assignment1_driving_school.model.Teacher;
 import edu.cs.birzeit.assignment1_driving_school.model.TeacherDa;
 
 public class Login extends AppCompatActivity {
 
     private Button butLog;
-    SignUP sign = new SignUP();
     private EditText email;
     private EditText pass;
     @Override
@@ -36,15 +36,16 @@ public class Login extends AppCompatActivity {
         int flag = 0;
 
         for (Teacher t :   TeacherDa.getInstance().Teachers) {
-            System.out.println("00000000000Sajed");
-            if (t.getEmail().equals(userName) && t.getPass().equals(password)) {
-                Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
 
+            if (t.getEmail().equalsIgnoreCase(userName) && t.getPass().equals(password)) {
+                Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show();
                 flag = 1;
               break;
             }
         }
+
         if(flag == 1){
+
             Intent v= new Intent( Login.this,Home.class);
             this.startActivity(v);
         }
@@ -53,11 +54,11 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show();
         }
 
-
     }
 
     public void btnSignUp(View view) {
-        Intent sign= new Intent( Login.this,SignUP.class);
-        startActivity(sign);
+        Intent s = new Intent(Login.this,SignUP.class);
+        startActivity(s);
+
     }
 }

@@ -13,7 +13,6 @@ import edu.cs.birzeit.assignment1_driving_school.model.Teacher;
 import edu.cs.birzeit.assignment1_driving_school.model.TeacherDa;
 
 public class SignUP extends AppCompatActivity {
-  public  ArrayList<Teacher> teachersList = new ArrayList<>();
     private EditText editText2;
     private EditText editText3;
     private EditText editPassword;

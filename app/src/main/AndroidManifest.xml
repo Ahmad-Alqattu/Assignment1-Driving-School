@@ -52,6 +52,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".SignUP"
+            android:exported="false"
+            android:label="Sign Up">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Login"
             android:exported="false">
             <meta-data

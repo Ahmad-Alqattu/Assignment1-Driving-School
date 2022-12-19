@@ -5,6 +5,9 @@ public class Teacher {
     private String email;
     private String pass;
 
+   public  Teacher(){
+
+   }
     public Teacher(String name, String email, String pass) {
         this.name = name;
         this.email = email;
