@@ -1,12 +1,14 @@
 package edu.cs.birzeit.assignment1_driving_school;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -23,6 +25,7 @@ public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
         TextView status;
         TextView paid;
         TextView to_pay;
+        CardView card;
 
         public MyviewHolder(@NonNull View ItemView){
             super(ItemView);
@@ -31,19 +34,18 @@ public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
             status=ItemView.findViewById(R.id.status);
             paid=ItemView.findViewById(R.id.paid);
             to_pay=ItemView.findViewById(R.id.to_bay);
+            card=ItemView.findViewById(R.id.card);
 
         }
 
     }
      List<Student> students= StudentDA.getInstance().students;;
-    String st[];
     Context ct ;
-    int img[];
+
 
      myAdabt(Context ct,String s1[], int img[]){
-        st=s1;
         this.ct=ct;
-        this.img=img;
+
     }
 
     @NonNull
@@ -68,7 +70,15 @@ public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
 
         holder.to_pay.append(String.valueOf(to_bay) );
 
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent second =new Intent(ct,student_info.class);
+                second.putExtra("id", holder.getAdapterPosition());
+                ct.startActivity(second);
 
+            }
+        });
     }
 
 

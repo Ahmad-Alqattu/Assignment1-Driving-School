@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import edu.cs.birzeit.assignment1_driving_school.model.Teacher;
 import edu.cs.birzeit.assignment1_driving_school.model.TeacherDa;
 
@@ -36,13 +38,15 @@ public class Login extends AppCompatActivity {
         for (Teacher t :   TeacherDa.getInstance().Teachers) {
             System.out.println("00000000000Sajed");
             if (t.getEmail().equals(userName) && t.getPass().equals(password)) {
-              flag = 1;
+                Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
+
+                flag = 1;
               break;
             }
         }
         if(flag == 1){
             Intent v= new Intent( Login.this,Home.class);
-            startActivity(v);
+            this.startActivity(v);
         }
         else
         {

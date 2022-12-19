@@ -17,10 +17,11 @@ public class TeacherDa {
 
     public TeacherDa() {
         Teachers = new ArrayList<>();
+        Teachers.add(new Teacher("ibrahim asfor", "123", "123"));
 
         Teachers.add(new Teacher("ibrahim asfor", "ibrahim@gmail.com", "12345"));
-        Teachers.add(new Teacher("ahmad luay", "ahmadl.qatu@gmail.com", "1235"));
-        Teachers.add(new Teacher("sajed abed", "sajed@gmail.com", "1235"));
+        Teachers.add(new Teacher("ahmad luay", "ahmadl.qatu@gmail.com", "12345"));
+        Teachers.add(new Teacher("sajed abed", "sajed@gmail.com", "12345"));
     }
 
 
