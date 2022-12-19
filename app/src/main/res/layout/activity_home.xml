@@ -9,10 +9,7 @@
     tools:context=".Home"
     android:layout_marginLeft="20dp"
     android:layout_marginTop="25dp"
-    android:layout_marginRight="20dp"
-
-
-    >
+    android:layout_marginRight="20dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

@@ -10,14 +10,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.BreakIterator;
+
 public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
+
     public class MyviewHolder extends RecyclerView.ViewHolder {
-            TextView t1;
-            ImageView img;
+        TextView name;
+        TextView ID;
+        TextView gender;
+        TextView courses;
+        TextView date;
+
         public MyviewHolder(@NonNull View ItemView){
             super(ItemView);
-            t1=ItemView.findViewById(R.id.category);
-            img=ItemView.findViewById(R.id.icon);
+            name=ItemView.findViewById(R.id.category);
         }
 
     }
@@ -42,8 +48,7 @@ public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull myAdabt.MyviewHolder holder, int position) {
-    holder.t1.setText(st[position]);
-        holder.img.setImageResource(img[position]);
+    holder.name.append(st[position]);
 
     }
 

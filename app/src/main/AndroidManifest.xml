@@ -13,11 +13,18 @@
         android:theme="@style/Theme.Assignment1DrivingSchool"
         tools:targetApi="31">
         <activity
+            android:name=".status"
+            android:exported="false"
+            android:label="Status">
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".addNewCar"
             android:exported="false"
-            android:label="add Car"
-            >
-
+            android:label="add Car">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -25,13 +32,11 @@
         <activity
             android:name=".viewCar"
             android:exported="false"
-            android:label="Cars"
-            >
+            android:label="Cars">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".Login"
             android:exported="false">
@@ -42,11 +47,9 @@
         <activity
             android:name=".Home"
             android:exported="false"
-            android:label="Home"
-            >
+            android:label="Home">
             <meta-data
                 android:name="android.app.lib_name"
-
                 android:value="" />
         </activity>
         <activity
