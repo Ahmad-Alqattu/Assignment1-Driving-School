@@ -11,21 +11,23 @@
     tools:layout_editor_absoluteY="2dp">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText1"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
         android:layout_marginTop="272dp"
+        android:layout_marginBottom="185dp"
         android:ems="10"
         android:hint="User name"
         android:inputType="textPersonName"
         android:textColorHighlight="#FF2525"
         android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editText2"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
@@ -35,7 +37,7 @@
         android:inputType="textPassword"
         android:textColorHint="#90202020"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
     <Button
         android:id="@+id/butLog"
@@ -52,6 +54,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="104dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="172dp"
+        android:onClick="btnSignUp"
+        android:text="Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText1"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
