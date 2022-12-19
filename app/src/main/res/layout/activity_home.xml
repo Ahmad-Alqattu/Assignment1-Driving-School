@@ -9,10 +9,7 @@
     tools:context=".Home"
     android:layout_marginLeft="20dp"
     android:layout_marginTop="25dp"
-    android:layout_marginRight="20dp"
-
-
-    >
+    android:layout_marginRight="20dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -22,6 +19,8 @@
         android:clickable="true"
         android:focusable="true"
         app:cardBackgroundColor="#FFA520"
+        android:onClick="btnaddStudent"
+        android:id="@+id/btnaddStudent"
         app:cardCornerRadius="32dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout

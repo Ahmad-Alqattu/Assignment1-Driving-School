@@ -22,7 +22,7 @@ import edu.cs.birzeit.assignment1_driving_school.model.CarData;
 public class viewCar extends AppCompatActivity {
     private Context context;
 
-   public Spinner spinner;
+    public Spinner spinner;
     private ListView listView;
     private CarData data;
 

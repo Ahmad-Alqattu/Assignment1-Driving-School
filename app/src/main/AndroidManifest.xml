@@ -13,7 +13,16 @@
         android:theme="@style/Theme.Assignment1DrivingSchool"
         tools:targetApi="31">
         <activity
-            android:name=".SignUP"
+            android:name=".status"
+            android:exported="false"
+            android:label="Status">
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddStudent"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
