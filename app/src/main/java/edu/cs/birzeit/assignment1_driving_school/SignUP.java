@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import edu.cs.birzeit.assignment1_driving_school.model.Teacher;
+import edu.cs.birzeit.assignment1_driving_school.model.TeacherDa;
 
 public class SignUP extends AppCompatActivity {
   public  ArrayList<Teacher> teachersList = new ArrayList<>();
@@ -33,7 +34,8 @@ public class SignUP extends AppCompatActivity {
         String pass = editPassword.getText().toString();
 
         if(!name.isEmpty() && !email.isEmpty() && editPassword.getText().toString()!=""){
-            teachersList.add(new Teacher(name,email,pass));
+
+            TeacherDa.getInstance().Teachers.add(new Teacher(name,email,pass));
 
             Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
             finish();

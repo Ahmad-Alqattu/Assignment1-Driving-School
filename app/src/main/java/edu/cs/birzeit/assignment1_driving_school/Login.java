@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import edu.cs.birzeit.assignment1_driving_school.model.Teacher;
+import edu.cs.birzeit.assignment1_driving_school.model.TeacherDa;
 
 public class Login extends AppCompatActivity {
 
@@ -32,7 +33,7 @@ public class Login extends AppCompatActivity {
         String password  = pass.getText().toString();
         int flag = 0;
 
-        for (Teacher t : sign.teachersList) {
+        for (Teacher t :   TeacherDa.getInstance().Teachers) {
             System.out.println("00000000000Sajed");
             if (t.getEmail().equals(userName) && t.getPass().equals(password)) {
               flag = 1;
