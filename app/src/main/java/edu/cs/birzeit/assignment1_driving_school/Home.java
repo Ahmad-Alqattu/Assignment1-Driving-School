@@ -44,4 +44,9 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
         Intent vCar = new Intent(context,status.class);
         context.startActivity(vCar);
     }
+
+    public void btnaddStudent(View view) {
+        Intent add_student = new Intent(context,AddStudent.class);
+        context.startActivity(add_student);
+    }
 }
