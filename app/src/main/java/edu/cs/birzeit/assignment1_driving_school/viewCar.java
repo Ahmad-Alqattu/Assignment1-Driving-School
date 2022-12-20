@@ -52,10 +52,10 @@ public class viewCar extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        List<String> cats = CarData.getInstance().getCategories();
+        List<String> cars = CarData.getInstance().getCategories();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item,cats);
+                android.R.layout.simple_spinner_item,cars);
         spinner.setAdapter(adapter);
     }
 

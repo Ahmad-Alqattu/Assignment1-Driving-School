@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A2FCFF"
+    android:visibility="visible"
     tools:context=".student_info">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
         android:text="Phone: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -25,6 +27,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="18dp"
         android:text="Status: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/payv" />
@@ -36,6 +39,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="18dp"
         android:text="Payable: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paidv" />
@@ -47,6 +51,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="18dp"
         android:text="Paid: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/corsev" />
@@ -58,6 +63,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="18dp"
         android:text="Corses: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/genderv" />
@@ -69,6 +75,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="18dp"
         android:text="Gender: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idv" />
@@ -80,6 +87,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="30dp"
         android:text="Name: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +99,103 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="18dp"
         android:text="ID: "
+        android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phonev" />
+
+    <Switch
+        android:id="@+id/licence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="25dp"
+        android:text="Get License "
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/rbAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusv" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conpay"
+        android:layout_width="wrap_content"
+        android:layout_height="110dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="5dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/edpay"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/def"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="from: "
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/Addpay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="30dp"
+            android:layout_weight="1"
+            android:text="add"
+            app:cornerRadius="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/licence">
+
+        <RadioButton
+            android:id="@+id/rbAdd"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="100dp"
+            android:text="Add Payment"
+            android:textSize="16sp" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

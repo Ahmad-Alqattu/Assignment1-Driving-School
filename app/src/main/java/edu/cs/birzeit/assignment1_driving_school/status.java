@@ -16,13 +16,22 @@ public class status extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
-        String[] s1 = getResources().getStringArray(R.array.cat_btn);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         student_info=findViewById(R.id.RecyclerView);
         myAdabt myadabt= new myAdabt(this,s1,p);
         student_info.setAdapter(myadabt);
         student_info.setLayoutManager(new LinearLayoutManager(this));
+    }
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override

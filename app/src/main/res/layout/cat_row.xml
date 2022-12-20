@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="#FF131C1C">
+    android:background="#00000000">
 
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
         android:id="@+id/card"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:background="?android:attr/selectableItemBackground"
@@ -24,7 +24,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="#C603BDC5">
 
 
             <TextView
