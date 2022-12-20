@@ -13,7 +13,16 @@ package edu.cs.birzeit.assignment1_driving_school.model;
         private int Paid;
 
 
-
+        public Student(String name, String idNumber, String phoneNumber, String sex, String sessionType, int sessionNumber, int paid) {
+            this.name = name;
+            this.idNumber = idNumber;
+            this.phoneNumber = phoneNumber;
+            this.sex = sex;
+            this.sessionType = sessionType;
+            this.sessionNumber = sessionNumber;
+            this.status="in training";
+            Paid = paid;
+        }
 
         public Student(String name, String idNumber, String phoneNumber, String sex, String sessionType) {
             this.name = name;
