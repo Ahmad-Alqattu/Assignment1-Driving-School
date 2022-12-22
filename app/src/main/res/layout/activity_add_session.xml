@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E4FFCD6A">
 
 
     <TextView
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="40dp"
-        android:text="Student Name:"
+        android:text="Student \nName:"
         android:textColor="#221E1E"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +35,8 @@
         android:id="@+id/studentNameSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="20dp"
         android:clipToPadding="false"
         android:contentDescription="stuent name"
         android:paddingHorizontal="10dp"
@@ -51,7 +52,7 @@
         android:layout_marginTop="30dp"
         android:text="Car:"
         android:textColor="#131212"
-        android:textSize="28sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -60,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="20dp"
         android:contentDescription="car "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
@@ -85,7 +86,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:background="#009688"
         android:hint="Select Time..."
@@ -97,6 +98,7 @@
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="260dp"
@@ -110,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:text="Time:"
         android:textColor="#131111"
         android:textSize="28sp"
