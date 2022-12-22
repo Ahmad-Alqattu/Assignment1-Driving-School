@@ -11,23 +11,23 @@
         android:id="@+id/btnAddCar"
         android:layout_width="157dp"
         android:layout_height="0dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="188dp"
         android:onClick="btnAddCar"
         android:text="Add Car"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintTop_toBottomOf="@+id/listView"
         tools:ignore="MissingConstraints" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="584dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddCar"
+        android:layout_height="43dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="39dp"
+        app:layout_constraintBottom_toTopOf="@+id/selectItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,12 +35,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="161dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
         android:text="Select Car"
         android:textSize="25dp"
@@ -52,24 +52,22 @@
 
     <ListView
         android:id="@+id/listView"
-        android:layout_width="380dp"
-        android:layout_height="309dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginBottom="36dp"
+        android:layout_width="382dp"
+        android:layout_height="166dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="122dp"
         app:layout_constraintBottom_toTopOf="@+id/btnAddCar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectItem"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/selectItem"
-        android:layout_width="209dp"
-        android:layout_height="73dp"
-        android:layout_marginBottom="119dp"
+        android:layout_width="179dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="52dp"
         android:gravity="center"
         android:onClick="btnSelect"
         android:text="Select"
@@ -77,7 +75,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="MissingConstraints"
-
-        />
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
