@@ -126,9 +126,10 @@ public class student_info extends AppCompatActivity {
                     Toast.makeText(student_info.this, "Add successfully", Toast.LENGTH_SHORT).show();
 
                     if (StudentDA.getInstance().students.get(id).getPaid() == Integer.parseInt(getIntent().getStringExtra("topay"))) {
-                        if (StudentDA.getInstance().students.get(id).getStatus().equalsIgnoreCase("has Debts"))
+                        if (StudentDA.getInstance().students.get(id).getStatus().equalsIgnoreCase("has Debts")) {
                             StudentDA.getInstance().students.get(id).setStatus("Done");
                             cons.setVisibility(View.INVISIBLE);
+                        }
                         rbAdd.setVisibility(View.INVISIBLE);
                     }
                 } else {

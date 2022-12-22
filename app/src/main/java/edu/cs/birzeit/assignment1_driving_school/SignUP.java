@@ -2,12 +2,17 @@ package edu.cs.birzeit.assignment1_driving_school;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TimePicker;
+
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import edu.cs.birzeit.assignment1_driving_school.model.Teacher;
 import edu.cs.birzeit.assignment1_driving_school.model.TeacherDa;
@@ -16,6 +21,9 @@ public class SignUP extends AppCompatActivity {
     private EditText editText2;
     private EditText editText3;
     private EditText editPassword;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

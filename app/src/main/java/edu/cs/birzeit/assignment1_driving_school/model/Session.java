@@ -7,14 +7,19 @@ public class Session {
     private int time;
     private String name;
     private String car;
+    private int m;
+    private int h;
 
-    public Session(int day, int month, int year, int time, String name, String car) {
+    public Session(int day, int month, int year, int h, int m, String name, String car) {
         this.day = day;
         this.month = month;
         this.year = year;
+        this.m = m;
+        this.h = h;
         this.time = time;
         this.name = name;
         this.car = car;
+
     }
 
     public int getDay() {
@@ -63,5 +68,21 @@ public class Session {
 
     public void setCar(String car) {
         this.car = car;
+    }
+
+    public int getM() {
+        return m;
+    }
+
+    public void setM(int m) {
+        this.m = m;
+    }
+
+    public int getH() {
+        return m;
+    }
+
+    public void setH(int m) {
+        this.m = m;
     }
 }

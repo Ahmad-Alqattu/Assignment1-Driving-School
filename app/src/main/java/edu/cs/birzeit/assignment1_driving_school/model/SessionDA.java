@@ -10,9 +10,9 @@ public class SessionDA implements ISessionDA{
     public SessionDA(){
         sessions = new ArrayList<>();
 
-        sessions.add(new Session(1,2,2023,11,"ibrahim","bmw"));
-        sessions.add(new Session(5,4,2023,10,"alaa","mercedes"));
-        sessions.add(new Session(11,12,2023,12,"ali","mazda"));
+        sessions.add(new Session(1,2,2023,11,00,"ibrahim","bmw"));
+        sessions.add(new Session(5,4,2023,10,30,"alaa","mercedes"));
+        sessions.add(new Session(11,12,2023,15,50,"ali","mazda"));
 
     }
     @Override

@@ -1,20 +1,23 @@
 package edu.cs.birzeit.assignment1_driving_school;
 
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
+import java.util.Calendar;
 import java.util.List;
 
 import edu.cs.birzeit.assignment1_driving_school.model.CarData;
@@ -31,6 +34,9 @@ public class AddSession extends AppCompatActivity {
     private Button addSessionBtn;
     private Context context;
     private SessionDA sessions = new SessionDA();
+    TextView time;
+    int h;
+    int m;
 
     int[] arrOfInt = {23,(11+1),2022};
 
@@ -39,11 +45,45 @@ public class AddSession extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_session);
         setupView();
+        time = (TextView) findViewById(R.id.timeBtn);
+        // perform click event listener on edit text
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(AddSession.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        time.setText(selectedHour + ":" + selectedMinute);
+                    }
+                }, hour, minute, false);//Yes 24 hour time
+                mTimePicker.setTitle("Select Time");
+                mTimePicker.show();
+
+            }
+        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    private void setupView() {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
+    }
+
+        private void setupView() {
         calendarView = findViewById(R.id.calendarView);
-        timeBtn = findViewById(R.id.timeBtn);
         studentNameSpinner = findViewById(R.id.studentNameSpinner);
         carSpinner = findViewById(R.id.carSpinner);
         addSessionBtn = findViewById(R.id.addSessionBtn);
@@ -64,12 +104,14 @@ public class AddSession extends AppCompatActivity {
                 int i=arrOfInt[0];
                 int i1=arrOfInt[1];
                 int i2=arrOfInt[2];
-                sessions.addSessionToTable(new Session(i,i1,i2,4,
+                sessions.addSessionToTable(new Session(i,i1,i2,h,m,
                         studentNameSpinner.getSelectedItem().toString(),
                         carSpinner.getSelectedItem().toString()));
                 Toast.makeText(getApplicationContext(),(""+i+" "+i1+" "+i2+" 4 "+
                         studentNameSpinner.getSelectedItem().toString()+" "+
                         carSpinner.getSelectedItem().toString()),Toast.LENGTH_SHORT);
+                Toast.makeText(AddSession.this, "Add successfully", Toast.LENGTH_SHORT).show();
+                finish();
 
             }
         });

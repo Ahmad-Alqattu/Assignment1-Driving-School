@@ -1,135 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="70dp"
+    android:background="#FFEB83"
+    android:orientation="vertical"
     tools:context=".AddStudent">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="35sp"
-        android:layout_gravity="center"
-        android:text="add student"
-        android:textColor="@color/black"
-        android:layout_margin="3dp"
-        android:padding="5dp"
-        />
-
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/studentName"
-        android:textSize="30sp"
-        android:layout_margin="3dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:hint="enter student name"
-        android:layout_gravity="center"
-        />
+        android:textSize="24sp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/IDNumber"
-        android:textSize="30sp"
-        android:layout_margin="5dp"
-        android:textColor="@color/black"
-        android:hint="enter id number"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        />
+        android:layout_marginTop="10dp"
+        android:hint="enter id number"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/phoneNumber"
-        android:textSize="30sp"
-        android:layout_margin="5dp"
-        android:hint="enter phone number"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        />
+        android:layout_marginTop="10dp"
+        android:hint="enter phone number"
+        android:textSize="24sp" />
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="sex:"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        />
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
 
-    <RadioGroup
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Gender:"
+
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <RadioGroup
+            android:id="@+id/grb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/maleBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="male"
+                android:textColor="#3F51B5"
+
+                android:textSize="22sp" />
+
+            <RadioButton
+                android:id="@+id/femaleBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="female"
+                android:textColor="#3F51B5"
+                android:textSize="22sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
-        >
-        <RadioButton
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/maleBtn"
-            android:textColor="#f548"
-            android:textSize="27sp"
-            android:text="male"
-            />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/femaleBtn"
-            android:textColor="#f548"
-            android:textSize="27sp"
-            android:text="female"
-            />
-    </RadioGroup>
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="session type:"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="session type:"
-        android:textSize="35sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="5dp"
-        />
+            android:textColor="@color/black"
+            android:textSize="24sp" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <RadioGroup
+            android:id="@+id/srb"
 
-        >
-        <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/automaticBtn"
-            android:text="automatic"
-            android:textColor="#f548"
-            android:textSize="27sp"
-            />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/manualBtn"
-            android:textSize="27sp"
-            android:text="manual"
-            android:textColor="#f548"
-            />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/truckBtn"
-            android:textSize="27sp"
-            android:textColor="#f548"
-            android:text="truck"
-            />
-    </RadioGroup>
+
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/automaticBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="automatic"
+                android:textColor="#f548"
+                android:textSize="23sp" />
+
+            <RadioButton
+                android:id="@+id/manualBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="manual"
+                android:textColor="#f548"
+                android:textSize="23sp" />
+
+            <RadioButton
+                android:id="@+id/truckBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="truck"
+                android:textColor="#f548"
+                android:textSize="23sp" />
+        </RadioGroup>
+    </LinearLayout>
 
     <Button
+        android:id="@+id/addStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addStudent"
-        android:text="Add Student"
-        android:textSize="25sp"
         android:layout_gravity="center"
-        />
+        android:padding="15dp"
+        android:text="Add Student"
+        android:textSize="24sp"
+        app:cornerRadius="20dp" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
