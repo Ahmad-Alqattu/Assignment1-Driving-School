@@ -4,4 +4,5 @@ import java.util.List;
 
 public interface IStudentDA {
     public List<String> showStudents();
+    public void addStudentsToTable(Student s);
 }

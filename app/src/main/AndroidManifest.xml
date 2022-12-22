@@ -16,18 +16,41 @@
             android:name=".status"
             android:exported="false"
             android:label="Status">
-            >
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".AddStudent"
-            android:exported="false">
+            android:exported="false"
+            android:label="Add Student"
+            >
+
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".AddSession"
+            android:exported="false"
+            android:label="Add Session"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".addGrid"
+            android:exported="false"
+            android:label="Add time"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <activity
             android:name=".addNewCar"
             android:exported="false"

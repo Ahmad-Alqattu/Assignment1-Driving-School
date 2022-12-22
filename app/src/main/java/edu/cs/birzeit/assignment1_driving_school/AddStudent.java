@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
-
 import edu.cs.birzeit.assignment1_driving_school.model.Student;
 import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
@@ -48,6 +46,7 @@ public class AddStudent extends AppCompatActivity{
         else
             return "truck";
     }
+    StudentDA newData = null;
 
     public void setupView() {
         addStudent = findViewById(R.id.addStudent);
@@ -63,21 +62,15 @@ public class AddStudent extends AppCompatActivity{
         addStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String studentNamee = String.valueOf(studentName.getText().toString());
                 String IDNumberr = String.valueOf(IDNumber.getText().toString());
                 String phoneNumberr = String.valueOf(phoneNumber.getText().toString());
                 Student s = new Student(studentNamee,
                         IDNumberr, phoneNumberr,
                         maleOrFemale(),sessionType());
-                StudentDA ss = new StudentDA();
-                ss.addStudentsToTable(new Student(studentNamee,
-                        IDNumberr, phoneNumberr,
-                        maleOrFemale(),sessionType()));
+                newData.students.add(s);
             }
         });
-
-
     }
 
 }

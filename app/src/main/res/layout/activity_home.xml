@@ -63,6 +63,8 @@
         android:clickable="true"
         android:focusable="true"
         app:cardBackgroundColor="#FFA520"
+        android:id="@+id/btnaddSession"
+        android:onClick="btnaddSession"
         app:cardCornerRadius="32dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout

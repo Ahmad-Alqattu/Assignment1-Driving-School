@@ -5,7 +5,16 @@ import java.util.List;
 
 public class StudentDA implements IStudentDA{
 
-    private List<Student> students;
+    public static StudentDA studentdata_1;
+    public static StudentDA getInstance()
+    {
+        if (studentdata_1 == null)
+            studentdata_1 = new StudentDA();
+
+        return studentdata_1;
+    }
+
+    public List<Student> students;
 
     public StudentDA() {
         students = new ArrayList<>();
@@ -16,6 +25,7 @@ public class StudentDA implements IStudentDA{
         students.add(new Student("yasmeen", "658", "0598021558", "female", "automatic"));
         students.add(new Student("ahmad", "164", "0598574578", "male", "truck"));
     }
+
 
 
     public void addStudentsToTable(Student s)
@@ -29,6 +39,16 @@ public class StudentDA implements IStudentDA{
             allStudents.add(s.getName() + "\n");
         }
         return allStudents;
+    }
+
+    public String[] getNames(){
+        String[] strings = new String[students.size()];
+        int i=0;
+        for (Student s: students){
+            strings[i]=s.getName();
+            i++;
+        }
+        return strings;
     }
 
 }
