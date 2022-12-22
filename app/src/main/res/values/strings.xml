@@ -13,8 +13,7 @@
         <item>Gasoline</item>
         <item>diesel</item>
         <item>electric</item>
-        <item>hybrid</item>
-
+        <item>hybrid</item>+4
     </string-array>
 
 </resources>

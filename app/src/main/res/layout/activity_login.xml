@@ -5,27 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#FFA520"
+    android:background="#FFEB83"
     tools:context=".Login"
     tools:layout_editor_absoluteX="-17dp"
     tools:layout_editor_absoluteY="2dp">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText1"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="250dp"
         android:ems="10"
         android:hint="User name"
         android:inputType="textPersonName"
         android:textColorHighlight="#FF2525"
-        android:textSize="20dp"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editText2"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
@@ -34,8 +34,9 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:textColorHint="#90202020"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editText1" />
 
     <Button
         android:id="@+id/butLog"
@@ -52,6 +53,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:onClick="btnSignUp"
+        android:text="Sign Up"
+        android:textDirection="locale"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/butLog"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
