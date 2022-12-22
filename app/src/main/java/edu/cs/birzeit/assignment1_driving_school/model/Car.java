@@ -46,11 +46,11 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "carName='" + carName + '\'' +
-                ", fuelType='" + fuelType + '\'' +
-                ", typeLicense='" + typeLicense + '\'' +
-                ", plateNo='" + plateNo + '\'' +
-                '}';
+        return
+                "Car Name='" + carName + '\n' +
+                "Fuel Type='" + fuelType + '\n' +
+                "Type License='" + typeLicense + '\n' +
+                "Plate Number='" + plateNo + '\''
+               ;
     }
 }
