@@ -18,15 +18,12 @@ public class StudentDA implements IStudentDA{
 
     public StudentDA() {
         students = new ArrayList<>();
-
         students.add(new Student("ibrahim", "144", "0599234567", "male", "manual"));
         students.add(new Student("fatma", "224", "0599999924", "female", "manual"));
         students.add(new Student("alaa", "234", "0599999924", "male", "automatic"));
         students.add(new Student("yasmeen", "658", "0598021558", "female", "automatic"));
         students.add(new Student("ahmad", "164", "0598574578", "male", "truck"));
     }
-
-
 
     public void addStudentsToTable(Student s)
     {
