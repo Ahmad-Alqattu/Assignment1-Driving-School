@@ -107,6 +107,7 @@ public class AddSession extends AppCompatActivity {
                 sessions.addSessionToTable(new Session(i,i1,i2,h,m,
                         studentNameSpinner.getSelectedItem().toString(),
                         carSpinner.getSelectedItem().toString()));
+                StudentDA.getInstance().ubdate( studentNameSpinner.getSelectedItem().toString());
                 Toast.makeText(getApplicationContext(),(""+i+" "+i1+" "+i2+" 4 "+
                         studentNameSpinner.getSelectedItem().toString()+" "+
                         carSpinner.getSelectedItem().toString()),Toast.LENGTH_SHORT);

@@ -49,5 +49,12 @@ public class StudentDA implements IStudentDA{
         }
         return strings;
     }
+    public void ubdate(String name){
+
+        for (Student s: students){
+            if(s.getName().equalsIgnoreCase(name))
+            s.setSessionNumber( s.getSessionNumber()+1);
+        }
+    }
 
 }
