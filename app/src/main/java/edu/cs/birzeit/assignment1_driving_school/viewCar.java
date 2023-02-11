@@ -18,6 +18,8 @@ import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
 import edu.cs.birzeit.assignment1_driving_school.model.Car;
