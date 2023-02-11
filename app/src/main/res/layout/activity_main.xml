@@ -20,17 +20,28 @@
 
 
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/drive_car" />
+        app:srcCompat="@drawable/istockphoto" />
 
     <TextView
         android:id="@+id/tViewMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="98dp"
+        android:layout_marginTop="84dp"
         android:text="@string/driving_cars"
+        android:textColor="#171717"
         android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMain" />
+
+    <TextView
+        android:id="@+id/textViewname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:text="Al-Huda"
+        android:textColor="#070707"
+        android:textSize="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgMain" />

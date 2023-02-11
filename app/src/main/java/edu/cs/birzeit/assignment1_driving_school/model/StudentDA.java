@@ -5,7 +5,7 @@ import java.util.List;
 
 public class StudentDA implements IStudentDA{
 
-    public static StudentDA studentdata_1;
+    public static StudentDA  studentdata_1;
     public static StudentDA getInstance()
     {
         if (studentdata_1 == null)

@@ -2,6 +2,7 @@ package edu.cs.birzeit.assignment1_driving_school;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tViewMain;
+    private TextView tViewMain,ViewMainnane;
     private ImageView imgMain;
     private Animation bottom ,top;
 
@@ -21,10 +22,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tViewMain = findViewById(R.id.tViewMain);
+        ViewMainnane = findViewById(R.id.textViewname);
         imgMain = findViewById(R.id.imgMain);
         top = AnimationUtils.loadAnimation(this,R.anim.topanim);
         bottom = AnimationUtils.loadAnimation(this,R.anim.bootmanim);
         imgMain.setAnimation(top);
+        ViewMainnane.setAnimation(bottom);
         tViewMain.setAnimation(bottom);
 
         Handler handler = new Handler();
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(view);
                 finish();
             }
-        }, 5000);
+        }, 3500);
 
 
     }

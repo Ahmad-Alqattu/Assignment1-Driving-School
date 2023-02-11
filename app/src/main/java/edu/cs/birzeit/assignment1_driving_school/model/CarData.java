@@ -5,16 +5,15 @@ import java.util.List;
 
     public class CarData implements  InfoCar{
 
-        public static CarData cardata_1;
+        private static CarData cardata_1;
         public static CarData getInstance()
         {
             if (cardata_1 == null)
                 cardata_1 = new CarData();
-
             return cardata_1;
         }
 
-   public static List<Car> item;
+   public List<Car> item;
 
     public CarData(){
         item = new ArrayList<>();

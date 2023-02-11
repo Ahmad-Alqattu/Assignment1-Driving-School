@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "327521446859",
+    "project_id": "driving-schoo",
+    "storage_bucket": "driving-schoo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327521446859:android:b4fb6a04fd649b86bee44e",
+        "android_client_info": {
+          "package_name": "edu.cs.birzeit.assignment1_driving_school"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327521446859-clbu9q4tdltvo8qcmmk8o1ljom8270vg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6lB5trC_pLEjSuqR9YBCxfNpiFamQY0E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327521446859-clbu9q4tdltvo8qcmmk8o1ljom8270vg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

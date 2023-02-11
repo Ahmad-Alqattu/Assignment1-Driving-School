@@ -10,71 +10,25 @@
 
     <Button
         android:id="@+id/btnAddCar"
-        android:layout_width="157dp"
+        android:layout_width="130dp"
         android:layout_height="0dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginBottom="188dp"
+        android:layout_marginTop="27dp"
         android:onClick="btnAddCar"
         android:text="Add Car"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView"
-        tools:ignore="MissingConstraints" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="39dp"
-        app:layout_constraintBottom_toTopOf="@+id/selectItem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="32dp"
-        android:gravity="center"
-        android:text="Select Car"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/selectItem"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="382dp"
-        android:layout_height="166dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="122dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddCar"
+        android:textSize="18dp"
+        app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectItem"
+        app:layout_constraintTop_toBottomOf="@+id/recycler"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/selectItem"
-        android:layout_width="179dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="52dp"
-        android:gravity="center"
-        android:onClick="btnSelect"
-        android:text="Select"
-        app:layout_constraintBottom_toTopOf="@+id/listView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="409dp"
+        android:layout_height="480dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

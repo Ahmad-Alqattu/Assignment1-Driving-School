@@ -100,5 +100,19 @@ package edu.cs.birzeit.assignment1_driving_school.model;
         public void setPaid(int paid) {
             Paid = paid;
         }
+
+        @Override
+        public String toString() {
+            return "Student{" +
+                    "name='" + name + '\'' +
+                    ", idNumber='" + idNumber + '\'' +
+                    ", phoneNumber='" + phoneNumber + '\'' +
+                    ", sex='" + sex + '\'' +
+                    ", sessionType='" + sessionType + '\'' +
+                    ", sessionNumber=" + sessionNumber +
+                    ", status='" + status + '\'' +
+                    ", Paid=" + Paid +
+                    '}';
+        }
     }
 

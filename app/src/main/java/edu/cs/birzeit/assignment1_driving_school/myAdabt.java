@@ -1,25 +1,33 @@
 package edu.cs.birzeit.assignment1_driving_school;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.cs.birzeit.assignment1_driving_school.model.Student;
 import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
-public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
+public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> implements Filterable {
+    List<Student> fullStudents= StudentDA.getInstance().students;
+    List<Student> students= new ArrayList<>(fullStudents);
 
+
+    @Override
+    public  Filter getFilter() {
+        return exampleFilter;
+    }
 
     public class MyviewHolder extends RecyclerView.ViewHolder {
         TextView name;
@@ -29,26 +37,64 @@ public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
         TextView to_pay;
         CardView card;
 
+
         public MyviewHolder(@NonNull View ItemView){
             super(ItemView);
-            name=ItemView.findViewById(R.id.category);
-            ID=ItemView.findViewById(R.id.id);
-            status=ItemView.findViewById(R.id.status);
+            name=ItemView.findViewById(R.id.car_name);
+            ID=ItemView.findViewById(R.id.plate_no);
+            status=ItemView.findViewById(R.id.fuel);
             paid=ItemView.findViewById(R.id.paid);
-            to_pay=ItemView.findViewById(R.id.to_bay);
+            to_pay=ItemView.findViewById(R.id.gear);
             card=ItemView.findViewById(R.id.card);
 
         }
 
     }
-     List<Student> students= StudentDA.getInstance().students;;
     Context ct ;
 
 
      myAdabt(Context ct,String s1[], int img[]){
         this.ct=ct;
 
-    }
+
+     }
+
+
+    private Filter exampleFilter = new Filter() {
+
+
+        FilterResults Fresults = new FilterResults();
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Student> filteredList = new ArrayList<>();
+
+
+            if(constraint.toString().isEmpty()){
+                filteredList.addAll(fullStudents);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                constraint="";
+                for ( Student item : fullStudents) {
+                    if (item.toString().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+
+                }
+            }
+
+            Fresults.values = filteredList;
+
+            return Fresults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            students.clear();
+            students.addAll((List) Fresults.values);
+            notifyDataSetChanged();
+        }
+    };
+
 
     @NonNull
     @Override
@@ -61,16 +107,16 @@ public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> {
     @Override
     public void onBindViewHolder(@NonNull myAdabt.MyviewHolder holder, int position) {
     holder.name.setText( students.get(position).getName());
-        holder.ID.append( students.get(position).getIdNumber());
+        holder.ID.setText( "ID: "+students.get(position).getIdNumber());
         holder.status.setText( students.get(position).getStatus());
-        holder.paid.append(String.valueOf( students.get(position).getPaid()));
+        holder.paid.setText("Paid: "+String.valueOf( students.get(position).getPaid()));
         int to_bay;
         if(students.get(position).getSessionType()=="truck")
             to_bay=110*students.get(position).getSessionNumber();
         else
             to_bay=90*students.get(position).getSessionNumber();
 
-        holder.to_pay.append(String.valueOf(to_bay) );
+        holder.to_pay.setText("payable: "+String.valueOf(to_bay) );
 int i=position;
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,6 +131,7 @@ int i=position;
             }
         });
     }
+
 
 
     @Override

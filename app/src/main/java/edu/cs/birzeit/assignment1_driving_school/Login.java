@@ -35,19 +35,22 @@ public class Login extends AppCompatActivity {
         String password  = pass.getText().toString();
         int flag = 0;
 
-        for (Teacher t :   TeacherDa.getInstance().Teachers) {
+        for (Teacher t : TeacherDa.getInstance().Teachers) {
 
             if (t.getEmail().equalsIgnoreCase(userName) && t.getPass().equals(password)) {
                 Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show();
+                Intent v= new Intent( Login.this,Home.class);
+                v.putExtra("tname",TeacherDa.getInstance().searchByEmail(userName));
+                this.startActivity(v);
+
                 flag = 1;
               break;
             }
         }
 
         if(flag == 1){
+            finish();
 
-            Intent v= new Intent( Login.this,Home.class);
-            this.startActivity(v);
         }
         else
         {

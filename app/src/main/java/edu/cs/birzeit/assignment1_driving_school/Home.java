@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 String s1[];
@@ -21,6 +22,7 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
     ImageView icon1;
     ImageView icon2;
     ImageView icon3;
+    TextView name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,9 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
         icon2.setImageResource(R.drawable.statas);
         icon3.setImageResource(R.drawable.cars);
      context = this;
+        name=findViewById(R.id.teacher_text);
+        name.setText("Hello Mr' "+getIntent().getStringExtra("tname"));
+
     }
 
     public void btnCar(View view) {
@@ -54,5 +59,12 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
         Intent add_session = new Intent(context,AddSession.class);
         context.startActivity(add_session);
     }
+    public void logout(View view) {
+        Intent add_session = new Intent(context,Login.class);
+        context.startActivity(add_session);
+        finish();
+    }
+
+
 
 }
