@@ -23,7 +23,7 @@ package edu.cs.birzeit.assignment1_driving_school.model;
             this.status="in training";
             Paid = paid;
         }
-
+        public Student(){}
         public Student(String name, String idNumber, String phoneNumber, String sex, String sessionType) {
             this.name = name;
             this.idNumber = idNumber;

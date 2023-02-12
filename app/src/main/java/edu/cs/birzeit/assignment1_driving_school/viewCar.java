@@ -1,5 +1,9 @@
 package edu.cs.birzeit.assignment1_driving_school;
 
+
+import static android.content.ContentValues.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,8 +23,17 @@ import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import edu.cs.birzeit.assignment1_driving_school.model.Car;
@@ -29,25 +43,78 @@ public class viewCar extends AppCompatActivity {
     private Context context;
     car_adabt adabt;
     RecyclerView car_info;
-    FirebaseFirestore fire;
+    FirebaseDatabase fire;
+    ArrayList<Car> Cars=new ArrayList<Car>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_view_car);
-        car_info= findViewById(R.id.recycler);
-        adabt =new car_adabt(this);
-        car_info.setAdapter(adabt);
+        car_info = findViewById(R.id.recycler);
+        adabt = new car_adabt(this,Cars);
         car_info.setLayoutManager(new LinearLayoutManager(this));
-        FirebaseFirestor =FirebaseFirestor.getInstance();
+        car_info.setAdapter(adabt);
 
-//      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-}
+        fire = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = fire.getReference("cars");
+        myRef.addValueEventListener(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                            for (DataSnapshot carSnapshot : dataSnapshot.getChildren()) {
+                                                Car car = carSnapshot.getValue(Car.class);
+                                                Cars.add(car);
+                                            }
+                                            Log.d(TAG, "Cars: " + Cars);
+                                            adabt.notifyDataSetChanged();
+                                            adabt.full(Cars);
+
+
+
+                                        }
+
+            @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+                                            Log.e(TAG, "e: " );
+
+                                        }});
+
+//        for (int i = 0; i < Cars.size(); i++) {
+//            myRef.child("car" + i).setValue(Cars.get(i));
+//        }
+
+
+//        });
+
+
+    }
+
+//        myRef.setValue("Hello, Firebase!").addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void aVoid) {
+//
+//                        Log.d("fire", "onSuccess: ");
+////                        Toast.makeText(context, "Firebase Data written successfully", Toast.LENGTH_SHORT).show();
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        Log.e("fire", "onFailure: " );
+////                        Toast.makeText(context,"Failed to write data", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                });
+////      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//}
 
 
     @Override
     protected void onResume() {
         super.onResume();
+
+
+
 
     }
 
@@ -143,11 +210,11 @@ public class viewCar extends AppCompatActivity {
 //        listView.setAdapter(adapterItems);
 //    }
 //
-//    public void btnAddCar(View view) {
-//        context= this;
-//        Intent vAddCar = new Intent( context,addNewCar.class);
-//        context.startActivity(vAddCar);
-//    }
+    public void btnAddCar(View view) {
+        context= this;
+        Intent vAddCar = new Intent( context,addNewCar.class);
+        context.startActivity(vAddCar);
+    }
 
 
 }

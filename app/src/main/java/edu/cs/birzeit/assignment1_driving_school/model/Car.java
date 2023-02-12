@@ -5,11 +5,17 @@ public class Car {
     private String fuelType ;
     private String typeLicense;
     private String plateNo;
-    public Car(String carName, String fuelType,String plateNo ,String typeLicense) {
+    private int year;
+
+    public Car() {
+        // Empty constructor
+    }
+    public Car(String carName, String fuelType, String plateNo, String typeLicense, int year) {
         this.carName = carName;
         this.fuelType = fuelType;
         this.typeLicense = typeLicense;
         this.plateNo = plateNo;
+        this.year = year;
     }
 
     public String getCarName() {
@@ -50,7 +56,14 @@ public class Car {
                 "Car Name='" + carName + '\n' +
                 "Fuel Type='" + fuelType + '\n' +
                 "Type License='" + typeLicense + '\n' +
-                "Plate Number='" + plateNo + '\''
-               ;
+                "Plate Number='" + plateNo + '\n'+" "+year;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "327521446859",
+    "firebase_url": "https://driving-schoo-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "driving-schoo",
     "storage_bucket": "driving-schoo.appspot.com"
   },

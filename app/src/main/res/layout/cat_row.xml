@@ -27,6 +27,16 @@
             android:background="#C603BDC5">
 
 
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/st" />
+
             <TextView
                 android:id="@+id/gear"
                 android:layout_width="wrap_content"
@@ -34,6 +44,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="14dp"
                 android:text="payable:"
+                android:textColor="#252525"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
@@ -42,9 +53,10 @@
                 android:id="@+id/paid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="14dp"
                 android:text="Paid: "
+                android:textColor="#252525"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/gear" />
@@ -56,6 +68,7 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginBottom="14dp"
                 android:text="status: "
+                android:textColor="#252525"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -64,10 +77,11 @@
                 android:id="@+id/car_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="48dp"
                 android:layout_marginTop="14dp"
                 android:text="Name: "
-                android:textSize="20sp"
+                android:textColor="#000000"
+                android:textSize="21sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,6 +92,7 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="20dp"
                 android:text="ID: "
+                android:textColor="#252525"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

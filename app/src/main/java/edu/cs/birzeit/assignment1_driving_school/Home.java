@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.FirebaseApp;
+
 public class Home extends AppCompatActivity {
 String s1[];
 RecyclerView category_btn;
@@ -26,6 +28,7 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(this);
         setContentView(R.layout.activity_home);
          icon= findViewById(R.id.icon1);
          icon1= findViewById(R.id.icon2);

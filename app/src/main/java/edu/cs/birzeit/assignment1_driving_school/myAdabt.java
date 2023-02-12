@@ -20,8 +20,8 @@ import edu.cs.birzeit.assignment1_driving_school.model.Student;
 import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
 public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> implements Filterable {
-    List<Student> fullStudents= StudentDA.getInstance().students;
-    List<Student> students= new ArrayList<>(fullStudents);
+    List<Student> fullStudents;
+    List<Student> students;
 
 
     @Override
@@ -53,11 +53,16 @@ public class myAdabt extends RecyclerView.Adapter<myAdabt.MyviewHolder> implemen
     Context ct ;
 
 
-     myAdabt(Context ct,String s1[], int img[]){
+     myAdabt(Context ct,List<Student> students){
         this.ct=ct;
-
-
+         this.students=students;
      }
+
+    public void full(List<Student> students) {
+     fullStudents= new ArrayList<>(students);
+
+    }
+
 
 
     private Filter exampleFilter = new Filter() {

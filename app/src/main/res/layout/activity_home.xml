@@ -52,8 +52,8 @@
         android:id="@+id/textView9"
         android:layout_width="match_parent"
         android:layout_height="310dp"
-        android:layout_marginTop="-154dp"
         android:background="#3DAADC"
+        android:translationY="-157dp"
         app:cardBackgroundColor="@color/purple_700"
         app:cardCornerRadius="140dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="160dp"
                 android:text="hello Mr ahmad qatu"
-                android:textColor="#152A3C"
+                android:textColor="#000512"
                 android:textSize="26sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -117,7 +117,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/car"
-            style="@style/cat_card"
+            style="@style/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
@@ -152,6 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="60dp"
                     android:text="Car"
+                    android:textColor="#1B1B1B"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon4"
@@ -163,7 +164,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/student_status"
-            style="@style/cat_card"
+            style="@style/card"
             android:onClick="btnStatus"
             app:cardBackgroundColor="#43A3EF"
             app:cardCornerRadius="32dp">
@@ -193,6 +194,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="35dp"
                     android:text="student status"
+                    android:textColor="#1B1B1B"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon3"
@@ -203,7 +205,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/btnaddSession"
-            style="@style/cat_card"
+            style="@style/card"
             android:onClick="btnaddSession"
             app:cardBackgroundColor="#43A3EF"
             app:cardCornerRadius="32dp">
@@ -233,6 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="35dp"
                     android:text="Add session"
+                    android:textColor="#1B1B1B"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon2"
@@ -273,6 +276,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="35dp"
                     android:text="add Student"
+                    android:textColor="#1B1B1B"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/icon1"

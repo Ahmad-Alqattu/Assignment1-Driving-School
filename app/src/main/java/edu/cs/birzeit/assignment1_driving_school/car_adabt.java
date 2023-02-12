@@ -1,7 +1,10 @@
 package edu.cs.birzeit.assignment1_driving_school;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +12,13 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.checkerframework.checker.guieffect.qual.UI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +30,8 @@ import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
 
     public class car_adabt extends RecyclerView.Adapter<car_adabt.MyviewHolder> implements Filterable {
-        List<Car> fullCars= CarData.getInstance().item;
-        List<Car> Cars= new ArrayList<>(fullCars);
+        List<Car> fullCars;
+        List<Car> Cars ;
 
 
         @Override
@@ -44,7 +50,7 @@ import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
             public MyviewHolder(@NonNull View ItemView){
                 super(ItemView);
-                name=ItemView.findViewById(R.id.car_name);
+       name=ItemView.findViewById(R.id.car_name);
                 plate=ItemView.findViewById(R.id.plate_no);
                 fuel=ItemView.findViewById(R.id.fuel);
                 gear=ItemView.findViewById(R.id.gear);
@@ -56,9 +62,19 @@ import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
         Context ct ;
 
 
-        car_adabt(Context ct){
+        car_adabt(Context ct , ArrayList<Car> Cars){
             this.ct=ct;
+            this.Cars = Cars;
+//
+//            Log.w("PUTT", fullCars.size()+"");
+////            this.Cars = new ArrayList<>(fullCars);
+//            Log.w("PTTT", this.Cars.size()+"");
+//
 
+        }
+
+        void full(ArrayList<Car> Cars){
+            fullCars = new ArrayList<>(Cars);
 
         }
 
@@ -109,10 +125,10 @@ import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
         @Override
         public void onBindViewHolder(@NonNull car_adabt.MyviewHolder holder, int position) {
-            holder.name.setText( Cars.get(position).getCarName());
-            holder.gear.setText( "ID: "+Cars.get(position).getTypeLicense());
-            holder.plate.setText( Cars.get(position).getPlateNo());
-            holder.fuel.setText("Paid: "+String.valueOf( Cars.get(position).getFuelType()));
+            holder.name.setText( Cars.get(position).getCarName()+" "+ Cars.get(position).getYear());
+            holder.plate.setText( ""+Cars.get(position).getTypeLicense());
+            holder.gear.setText( "plate No:"+Cars.get(position).getPlateNo());
+            holder.fuel.setText(String.valueOf( Cars.get(position).getFuelType()));
 
             holder.card.setOnClickListener(new View.OnClickListener() {
                 @Override

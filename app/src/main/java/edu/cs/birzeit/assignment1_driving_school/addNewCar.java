@@ -56,7 +56,7 @@ public class addNewCar extends AppCompatActivity {
             RadioButton selectedRadioButton = findViewById(radioGroup.getCheckedRadioButtonId());
 
 
-            newData.item.add(new Car(edt2,spn,edt4,selectedRadioButton.getText().toString()));
+            newData.item.add(new Car(edt2,spn,edt4,selectedRadioButton.getText().toString(), 2020));
             Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
            finish();
         }
