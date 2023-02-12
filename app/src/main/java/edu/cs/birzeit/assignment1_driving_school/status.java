@@ -45,7 +45,7 @@ public class status extends AppCompatActivity {
         myadabt=new myAdabt(this,students);
         student_info.setAdapter(myadabt);
 
-//
+
 //        fire = FirebaseDatabase.getInstance();
 //        DatabaseReference myRef = fire.getReference("students");
 //                for (int i = 0; i < students.size(); i++) {
