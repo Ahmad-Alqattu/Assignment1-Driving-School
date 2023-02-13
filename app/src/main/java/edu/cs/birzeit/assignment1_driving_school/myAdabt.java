@@ -127,7 +127,6 @@ int i=position;
             @Override
             public void onClick(View v) {
                 Intent second =new Intent(ct,student_info.class);
-
                 second.putExtra("id", String.valueOf(i));
                 second.putExtra("topay", String.valueOf(to_bay));
 

@@ -65,11 +65,7 @@ import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
         car_adabt(Context ct , ArrayList<Car> Cars){
             this.ct=ct;
             this.Cars = Cars;
-//
-//            Log.w("PUTT", fullCars.size()+"");
-////            this.Cars = new ArrayList<>(fullCars);
-//            Log.w("PTTT", this.Cars.size()+"");
-//
+//            fullCars = new ArrayList<>(Cars);
 
         }
 

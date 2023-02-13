@@ -16,11 +16,13 @@ public class Session {
         this.year = year;
         this.m = m;
         this.h = h;
-        this.time = time;
         this.name = name;
         this.car = car;
 
+    }    public Session(){
+
     }
+
 
     public int getDay() {
         return day;
@@ -46,12 +48,20 @@ public class Session {
         this.year = year;
     }
 
-    public int getTime() {
-        return time;
+    public int getM() {
+        return m;
     }
 
-    public void setTime(int time) {
-        this.time = time;
+    public void setM(int m) {
+        this.m = m;
+    }
+
+    public int getH() {
+        return h;
+    }
+
+    public void setH(int h) {
+        this.h = h;
     }
 
     public String getName() {
@@ -70,19 +80,4 @@ public class Session {
         this.car = car;
     }
 
-    public int getM() {
-        return m;
-    }
-
-    public void setM(int m) {
-        this.m = m;
-    }
-
-    public int getH() {
-        return m;
-    }
-
-    public void setH(int m) {
-        this.m = m;
-    }
 }

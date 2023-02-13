@@ -13,7 +13,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import edu.cs.birzeit.assignment1_driving_school.model.Car;
+import edu.cs.birzeit.assignment1_driving_school.model.Session;
 import edu.cs.birzeit.assignment1_driving_school.model.Student;
 import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
@@ -96,7 +103,23 @@ public class AddStudent extends AppCompatActivity{
                     Student s = new Student(studentNamee,
                             IDNumberr, phoneNumberr,
                             maleOrFemale(),sessionType());
-                    StudentDA.getInstance().addStudentsToTable(s);
+//                    StudentDA.getInstance().addStudentsToTable(s);
+                    FirebaseDatabase fire = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = fire.getReference("students");
+
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // Get the number of child nodes
+                            long numOfCars = dataSnapshot.getChildrenCount();
+
+                            // Use the setValue method to save the car object in the database with the incremented identifier as the child name
+                            myRef.child("student" + (numOfCars + 1)).setValue(s);
+                        }
+                        @Override
+                        public void onCancelled(DatabaseError error) {// Handle error
+                        }
+                    });
 
                     Toast.makeText(AddStudent.this, "Add successfully", Toast.LENGTH_SHORT).show();
                     finish();

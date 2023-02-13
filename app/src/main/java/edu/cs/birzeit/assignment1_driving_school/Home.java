@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.cs.birzeit.assignment1_driving_school.model.Teacher;
+
 public class Home extends AppCompatActivity {
 String s1[];
 RecyclerView category_btn;
@@ -41,6 +46,13 @@ int img[]={R.drawable.add_user,R.drawable.drive,R.drawable.statas,R.drawable.car
      context = this;
         name=findViewById(R.id.teacher_text);
         name.setText("Hello Mr' "+getIntent().getStringExtra("tname"));
+
+
+        List<Teacher> Teachers = new ArrayList<Teacher>();
+        Teachers.add(new Teacher("ibrahim asfor", "123", "123"));
+        Teachers.add(new Teacher("ibrahim asfor", "ibrahim@gmail.com", "12345"));
+        Teachers.add(new Teacher("ahmad luay", "ahmadl.qatu@gmail.com", "12345"));
+        Teachers.add(new Teacher("sajed abed", "sajed@gmail.com", "12345"));
 
     }
 

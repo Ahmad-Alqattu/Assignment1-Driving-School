@@ -35,7 +35,10 @@ package edu.cs.birzeit.assignment1_driving_school.model;
             this.Paid=0;
 
         }
+        public int updateS(){
+            return sessionNumber+1;
 
+        }
         public String getName() {
             return name;
         }

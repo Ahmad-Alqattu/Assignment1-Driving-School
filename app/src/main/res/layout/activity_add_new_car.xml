@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#D5FF8C10"
+    android:background="#D5FFEFDE"
     tools:context=".addNewCar">
 
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="138dp"
+        android:gravity="center"
+        android:text="Name Car"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView5"
@@ -25,7 +37,7 @@
 
     <EditText
         android:id="@+id/edit4"
-        android:layout_width="230dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
@@ -42,20 +54,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="33dp"
         android:gravity="center"
-        android:text="Name Car"
+        android:text="production year"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
         tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/year"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit2" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="33dp"
         android:gravity="center"
         android:text="Fuel Type"
         android:textSize="20sp"
@@ -78,9 +101,9 @@
 
     <EditText
         android:id="@+id/edit2"
-        android:layout_width="230dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="94dp"
+        android:layout_marginTop="124dp"
         android:layout_marginEnd="25dp"
         android:ems="10"
         android:gravity="center"
@@ -125,9 +148,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
-            android:text="Automatic"
             android:checked="true"
-            />
+            android:text="Automatic" />
 
         <RadioButton
             android:id="@+id/radioButton2"
@@ -140,15 +162,14 @@
         android:id="@+id/spinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="76dp"
         android:entries="@array/fule"
         android:scrollbarSize="5dp"
         android:textAlignment="center"
         android:transitionGroup="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit2"
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/year" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

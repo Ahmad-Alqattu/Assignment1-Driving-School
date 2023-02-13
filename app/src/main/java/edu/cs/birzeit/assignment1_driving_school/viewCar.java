@@ -1,6 +1,4 @@
 package edu.cs.birzeit.assignment1_driving_school;
-
-
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
@@ -44,6 +42,7 @@ public class viewCar extends AppCompatActivity {
     car_adabt adabt;
     RecyclerView car_info;
     FirebaseDatabase fire;
+    int i;
     ArrayList<Car> Cars=new ArrayList<Car>();
 
     @Override
@@ -55,40 +54,30 @@ public class viewCar extends AppCompatActivity {
         adabt = new car_adabt(this,Cars);
         car_info.setLayoutManager(new LinearLayoutManager(this));
         car_info.setAdapter(adabt);
-
         fire = FirebaseDatabase.getInstance();
         DatabaseReference myRef = fire.getReference("cars");
         myRef.addValueEventListener(new ValueEventListener() {
                                         @Override
                                         public void onDataChange(DataSnapshot dataSnapshot) {
-
+                                            Cars.clear();
                                             for (DataSnapshot carSnapshot : dataSnapshot.getChildren()) {
                                                 Car car = carSnapshot.getValue(Car.class);
                                                 Cars.add(car);
                                             }
-                                            Log.d(TAG, "Cars: " + Cars);
-                                            adabt.notifyDataSetChanged();
                                             adabt.full(Cars);
-
-
-
+                                            adabt.notifyDataSetChanged();
                                         }
-
-            @Override
+                                        @Override
                                         public void onCancelled(@NonNull DatabaseError error) {
                                             Log.e(TAG, "e: " );
-
                                         }});
 
-//        for (int i = 0; i < Cars.size(); i++) {
-//            myRef.child("car" + i).setValue(Cars.get(i));
+
+//        for (int g = 0; g < Cars.size(); g++) {
+//            myRef.child("car"+g).setValue(Cars.get(g));
 //        }
-
-
-//        });
-
-
     }
+
 
 //        myRef.setValue("Hello, Firebase!").addOnSuccessListener(new OnSuccessListener<Void>() {
 //                    @Override
@@ -112,6 +101,7 @@ public class viewCar extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        adabt.notifyDataSetChanged();
 
 
 
