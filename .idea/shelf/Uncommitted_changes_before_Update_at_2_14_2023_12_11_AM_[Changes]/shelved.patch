@@ -1,0 +1,44 @@
+Index: app/src/main/java/edu/cs/birzeit/assignment1_driving_school/student_info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package edu.cs.birzeit.assignment1_driving_school;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.cardview.widget.CardView;\r\nimport androidx.constraintlayout.widget.ConstraintLayout;\r\n\r\nimport android.os.Bundle;\r\nimport android.view.Menu;\r\nimport android.view.MenuItem;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.CompoundButton;\r\nimport android.widget.EditText;\r\nimport android.widget.RadioButton;\r\nimport android.widget.Switch;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\n\r\nimport edu.cs.birzeit.assignment1_driving_school.model.StudentDA;\r\n\r\npublic class student_info extends AppCompatActivity {\r\n    TextView name;\r\n    TextView ginder;\r\n    TextView ID;\r\n    TextView phone;\r\n    TextView status;\r\n    TextView corses;\r\n    TextView paid;\r\n    TextView to_pay;\r\n    CardView card;\r\n    Switch license;\r\n    ConstraintLayout cons;\r\n    RadioButton rbAdd;\r\n    TextView from;\r\n    Button add;\r\n    EditText pay;\r\n    int flag=0;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_student_info);\r\n        getSupportActionBar().setDisplayHomeAsUpEnabled(true);\r\n        int id = Integer.parseInt(getIntent().getStringExtra(\"id\"));\r\n        setVar();\r\n        name.append(StudentDA.getInstance().students.get(id).getName());\r\n        ginder.append(StudentDA.getInstance().students.get(id).getSex());\r\n        ID.append(StudentDA.getInstance().students.get(id).getIdNumber());\r\n        phone.append(StudentDA.getInstance().students.get(id).getPhoneNumber());\r\n        status.append(StudentDA.getInstance().students.get(id).getStatus());\r\n        corses.append(String.valueOf(StudentDA.getInstance().students.get(id).getSessionNumber()));\r\n        paid.append(String.valueOf(StudentDA.getInstance().students.get(id).getPaid()));\r\n        to_pay.append(getIntent().getStringExtra(\"topay\"));\r\n        cons = findViewById(R.id.conpay);\r\n        cons.setVisibility(View.INVISIBLE);\r\n        rbAdd=findViewById(R.id.rbAdd);\r\n        license = findViewById(R.id.licence);\r\n        from= findViewById(R.id.def);\r\n        pay= findViewById(R.id.edpay);\r\n        add= findViewById(R.id.Addpay);\r\n\r\n\r\n        if(StudentDA.getInstance().students.get(id).getStatus()!=\"in training\") {\r\n\r\n            license.setVisibility(View.INVISIBLE);\r\n        }if(StudentDA.getInstance().students.get(id).getPaid()==Integer.parseInt(getIntent().getStringExtra(\"topay\"))) {\r\n\r\n            rbAdd.setVisibility(View.INVISIBLE);\r\n        }\r\n        license.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {\r\n            @Override\r\n            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {\r\n                if(isChecked)\r\n                    if(StudentDA.getInstance().students.get(id).getPaid()==Integer.parseInt(getIntent().getStringExtra(\"topay\")))\r\n                {\r\n                    StudentDA.getInstance().students.get(id).setStatus(\"Done\");\r\n                }else{\r\n                        StudentDA.getInstance().students.get(id).setStatus(\"has Debts\");\r\n                    }\r\n                    else\r\n                    StudentDA.getInstance().students.get(id).setStatus(\"in training\");\r\n\r\n\r\n            }\r\n        });\r\n        int num = Integer.parseInt(getIntent().getStringExtra(\"topay\")) - StudentDA.getInstance().students.get(id).getPaid();\r\n\r\n        rbAdd.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n                if (flag==0) {\r\n                    rbAdd.setChecked(true);\r\n                    flag=1;\r\n                }else {\r\n                    rbAdd.setChecked(false);\r\n                    flag = 0;\r\n\r\n                }\r\n            }\r\n        });\r\n\r\n        rbAdd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {\r\n            @Override\r\n            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {\r\n\r\n\r\n                if(isChecked) {\r\n                    cons.setVisibility(View.VISIBLE);\r\n                    from.setText(\"from: \"+String.valueOf(num));\r\n                }else\r\n                    cons.setVisibility(View.INVISIBLE);\r\n\r\n            }\r\n\r\n        });\r\n        add.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n\r\n                if (pay.getText().toString().isEmpty() || Integer.parseInt(pay.getText().toString()) <= num) {\r\n                    StudentDA.getInstance().students.get(id).setPaid(StudentDA.getInstance().students.get(id).getPaid() + Integer.parseInt(pay.getText().toString()));\r\n                    paid.setText(\"Paid: \" + StudentDA.getInstance().students.get(id).getPaid());\r\n                    int num = Integer.parseInt(getIntent().getStringExtra(\"topay\")) - StudentDA.getInstance().students.get(id).getPaid();\r\n                    from.setText(\"from: \"+String.valueOf(num));\r\n\r\n                    Toast.makeText(student_info.this, \"Add successfully\", Toast.LENGTH_SHORT).show();\r\n\r\n                    if (StudentDA.getInstance().students.get(id).getPaid() == Integer.parseInt(getIntent().getStringExtra(\"topay\"))) {\r\n                        if (StudentDA.getInstance().students.get(id).getStatus().equalsIgnoreCase(\"has Debts\")) {\r\n                            StudentDA.getInstance().students.get(id).setStatus(\"Done\");\r\n                            cons.setVisibility(View.INVISIBLE);\r\n                        }\r\n                        rbAdd.setVisibility(View.INVISIBLE);\r\n                    }\r\n                } else {\r\n                    Toast.makeText(student_info.this, \"try again\", Toast.LENGTH_SHORT).show();\r\n                }\r\n            }\r\n        });\r\n\r\n    }\r\n\r\n    private void setVar(){\r\n       name=findViewById(R.id.name);\r\n         ginder=findViewById(R.id.genderv);\r\n         ID=findViewById(R.id.idv);\r\n         phone=findViewById(R.id.phonev);\r\n         status=findViewById(R.id.statusv);\r\n         corses=findViewById(R.id.corsev);\r\n         paid=findViewById(R.id.paidv);\r\n         to_pay=findViewById(R.id.payv);\r\n\r\n\r\n    }\r\n\r\n    @Override\r\n    public boolean onOptionsItemSelected(MenuItem item) {\r\n        switch (item.getItemId()) {\r\n            case android.R.id.home:\r\n                finish();\r\n                return true;\r\n        }\r\n        return super.onOptionsItemSelected(item);\r\n    }\r\n\r\n    public boolean onCreateOptionsMenu(Menu menu) {\r\n        return true;\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/edu/cs/birzeit/assignment1_driving_school/student_info.java b/app/src/main/java/edu/cs/birzeit/assignment1_driving_school/student_info.java
+--- a/app/src/main/java/edu/cs/birzeit/assignment1_driving_school/student_info.java	(revision 726cb20266feecd80f7473b8af3aa3be424cd494)
++++ b/app/src/main/java/edu/cs/birzeit/assignment1_driving_school/student_info.java	(date 1676325082983)
+@@ -153,6 +153,10 @@
+ 
+     }
+ 
++    public int calculatePayment(int paid, int toPay){
++        return toPay - paid;
++    }
++
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         switch (item.getItemId()) {
+Index: app/src/test/java/edu/cs/birzeit/assignment1_driving_school/student_infoTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/test/java/edu/cs/birzeit/assignment1_driving_school/student_infoTest.java b/app/src/test/java/edu/cs/birzeit/assignment1_driving_school/student_infoTest.java
+new file mode 100644
+--- /dev/null	(date 1676326039117)
++++ b/app/src/test/java/edu/cs/birzeit/assignment1_driving_school/student_infoTest.java	(date 1676326039117)
+@@ -0,0 +1,13 @@
++package edu.cs.birzeit.assignment1_driving_school;
++import junit.framework.*;
++
++import org.junit.Test;
++
++public class student_infoTest extends TestCase{
++    @Test
++    public void calculatePaymentTest(){
++        student_info s = new student_info();
++        assertEquals(50, s.calculatePayment(200,250));
++    }
++
++}
