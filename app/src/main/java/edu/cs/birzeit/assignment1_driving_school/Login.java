@@ -3,9 +3,12 @@ package edu.cs.birzeit.assignment1_driving_school;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -17,9 +20,15 @@ import edu.cs.birzeit.assignment1_driving_school.model.TeacherDa;
 
 public class Login extends AppCompatActivity {
 
+    public static final String NAME = "NAME";
+    public static final String PASS = "PASS";
+    public static final String FLAG = "FLAG";
     private Button butLog;
     private EditText email;
     private EditText pass;
+    private CheckBox checkBox;
+    private SharedPreferences prefs;
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +36,26 @@ public class Login extends AppCompatActivity {
         butLog = findViewById(R.id.butLog);
         email = findViewById(R.id.editText1);
         pass = findViewById(R.id.editText2);
+        checkBox = findViewById(R.id.checkBox);
+        setupSharedPreference();
+        checkPrefs();
 
+    }
+
+    private void checkPrefs(){
+        Boolean flag = prefs.getBoolean(FLAG, false);
+        if(flag){
+            String name = prefs.getString(NAME,"");
+            String pas = prefs.getString(PASS,"");
+            email.setText(name);
+            pass.setText(pas);
+            checkBox.setChecked(true);
+        }
+    }
+
+    private void setupSharedPreference(){
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = prefs.edit();
     }
 
     public void subLog(View view) {
@@ -55,6 +83,15 @@ public class Login extends AppCompatActivity {
         else
         {
             Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show();
+        }
+
+        if(checkBox.isChecked()){
+            String nam = email.getText().toString();
+            String pas = pass.getText().toString();
+            editor.putString(NAME, nam);
+            editor.putString(PASS, pas);
+            editor.putBoolean(FLAG,true);
+            editor.commit();
         }
 
     }

@@ -11,7 +11,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import edu.cs.birzeit.assignment1_driving_school.model.Car;
 import edu.cs.birzeit.assignment1_driving_school.model.CarData;
 
@@ -30,6 +29,8 @@ public class addNewCar extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
