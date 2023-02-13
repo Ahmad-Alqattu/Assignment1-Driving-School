@@ -1,5 +1,6 @@
 package edu.cs.birzeit.assignment1_driving_school;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
@@ -10,6 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.TimePicker;
 
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -42,8 +49,28 @@ public class SignUP extends AppCompatActivity {
 
         if(!name.isEmpty() && !email.isEmpty() && editPassword.getText().toString()!=""){
 
-            TeacherDa.getInstance().Teachers.add(new Teacher(name,email,pass));
 
+            FirebaseDatabase fire = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = fire.getReference("teachers");
+
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Get the number of child nodes
+                    long numOfCars = dataSnapshot.getChildrenCount();
+
+                    // Use the setValue method to save the car object in the database with the incremented identifier as the child name
+                    myRef.child("teacher" + (numOfCars + 1)).setValue(new Teacher(name,email,pass));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+
+
+
+            });
             Toast.makeText(this, "Add successfully", Toast.LENGTH_SHORT).show();
             finish();
         }

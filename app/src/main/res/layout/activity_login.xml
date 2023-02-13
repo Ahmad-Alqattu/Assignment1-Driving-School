@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="50dp"
         android:onClick="subLog"
         android:padding="12dp"
@@ -59,13 +59,16 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="70dp"
         android:onClick="btnSignUp"
         android:text="Sign Up"
+        android:textColor="#000000"
+        android:textColorLink="#972323"
         android:textDirection="locale"
         android:textSize="18sp"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/butLog"
         tools:ignore="MissingConstraints" />
@@ -74,12 +77,25 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="5dp"
-        android:text="remember me"
-        app:layout_constraintBottom_toBottomOf="@+id/butLog"
-        app:layout_constraintEnd_toStartOf="@+id/butLog"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="5dp"
+        android:text="Remember me"
+        app:layout_constraintBottom_toTopOf="@+id/butLog"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintVertical_bias="0.562" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Idont have account"
+        android:textColor="#AF1515"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
