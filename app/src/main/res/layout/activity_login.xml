@@ -70,4 +70,16 @@
         app:layout_constraintTop_toBottomOf="@+id/butLog"
         tools:ignore="MissingConstraints" />
 
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="5dp"
+        android:text="remember me"
+        app:layout_constraintBottom_toBottomOf="@+id/butLog"
+        app:layout_constraintEnd_toStartOf="@+id/butLog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

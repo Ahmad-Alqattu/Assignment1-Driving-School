@@ -5,7 +5,9 @@ plugins {
 
 
 }
+
 //repositories {
+
 //    // Make sure that you have the following two repositories
 //    google()  // Google's Maven repository
 //
@@ -60,6 +62,9 @@ android {
 }
 
 dependencies {
+
+
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation 'com.google.firebase:firebase-firestore:24.4.3'
     implementation 'com.google.firebase:firebase-database:20.1.0'
