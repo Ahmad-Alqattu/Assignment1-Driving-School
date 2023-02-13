@@ -153,6 +153,10 @@ public class student_info extends AppCompatActivity {
 
     }
 
+    public int calculatePayment(int paid, int toPay){
+        return toPay - paid;
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
