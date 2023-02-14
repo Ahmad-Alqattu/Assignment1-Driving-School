@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFEB83"
+    android:background="#FDEADB"
     tools:context=".SignUP">
 
     <TextView
@@ -12,9 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="154dp"
+        android:fontFamily="sans-serif-medium"
         android:text="User Name"
-        android:textSize="18sp"
+        android:textColor="#292929"
+        android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -24,9 +26,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="46dp"
+        android:fontFamily="sans-serif-medium"
         android:text="Email"
-        android:textSize="18sp"
+        android:textColor="#292929"
+        android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/statusv" />
 
@@ -35,9 +39,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="45dp"
+        android:fontFamily="sans-serif-medium"
         android:text="password"
-        android:textSize="18sp"
+        android:textColor="#292929"
+        android:textSize="19sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idv" />
 
@@ -45,7 +51,7 @@
         android:id="@+id/edit2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="25dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -88,7 +94,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPassword" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

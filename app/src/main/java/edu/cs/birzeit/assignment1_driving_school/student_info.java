@@ -16,6 +16,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import edu.cs.birzeit.assignment1_driving_school.model.Session;
+import edu.cs.birzeit.assignment1_driving_school.model.Student;
 import edu.cs.birzeit.assignment1_driving_school.model.StudentDA;
 
 public class student_info extends AppCompatActivity {
@@ -35,21 +43,65 @@ public class student_info extends AppCompatActivity {
     Button add;
     EditText pay;
     int flag=0;
-
+    int f;
+    String id ;
+    Student student;
+    FirebaseDatabase fire = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = fire.getReference("students");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_info);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        int id = Integer.parseInt(getIntent().getStringExtra("id"));
         setVar();
-        name.append(StudentDA.getInstance().students.get(id).getName());
-        ginder.append(StudentDA.getInstance().students.get(id).getSex());
-        ID.append(StudentDA.getInstance().students.get(id).getIdNumber());
-        phone.append(StudentDA.getInstance().students.get(id).getPhoneNumber());
-        status.append(StudentDA.getInstance().students.get(id).getStatus());
-        corses.append(String.valueOf(StudentDA.getInstance().students.get(id).getSessionNumber()));
-        paid.append(String.valueOf(StudentDA.getInstance().students.get(id).getPaid()));
+        id = getIntent().getStringExtra("id");
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot carSnapshot : dataSnapshot.getChildren()) {
+                    if (carSnapshot.getKey().equals("student" + id)) {
+                        student = carSnapshot.getValue(Student.class);
+                        break;
+                    }
+
+                }
+                adddata();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {// Handle error
+            }
+        });
+if(f==5){
+
+        }
+
+
+    }
+
+    private void setVar(){
+       name=findViewById(R.id.name);
+         ginder=findViewById(R.id.genderv);
+         ID=findViewById(R.id.idv);
+         phone=findViewById(R.id.phonev);
+         status=findViewById(R.id.statusv);
+         corses=findViewById(R.id.corsev);
+         paid=findViewById(R.id.paidv);
+         to_pay=findViewById(R.id.payv);
+
+
+    }
+
+    private void adddata(){
+
+        name.append(student.getName());
+        ginder.append(student.getSex());
+        ID.append(student.getIdNumber());
+        phone.append(student.getPhoneNumber());
+        status.append(student.getStatus());
+        corses.append(String.valueOf(student.getSessionNumber()));
+        paid.append(String.valueOf(student.getPaid()));
         to_pay.append(getIntent().getStringExtra("topay"));
         cons = findViewById(R.id.conpay);
         cons.setVisibility(View.INVISIBLE);
@@ -58,32 +110,28 @@ public class student_info extends AppCompatActivity {
         from= findViewById(R.id.def);
         pay= findViewById(R.id.edpay);
         add= findViewById(R.id.Addpay);
-
-
-        if(StudentDA.getInstance().students.get(id).getStatus()!="in training") {
-
+        if(!student.getStatus().equals("in training")) {
             license.setVisibility(View.INVISIBLE);
-        }if(StudentDA.getInstance().students.get(id).getPaid()==Integer.parseInt(getIntent().getStringExtra("topay"))) {
-
+        }if(student.getPaid()==Integer.parseInt(getIntent().getStringExtra("topay"))) {
             rbAdd.setVisibility(View.INVISIBLE);
         }
         license.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked)
-                    if(StudentDA.getInstance().students.get(id).getPaid()==Integer.parseInt(getIntent().getStringExtra("topay")))
-                {
-                    StudentDA.getInstance().students.get(id).setStatus("Done");
-                }else{
-                        StudentDA.getInstance().students.get(id).setStatus("has Debts");
+                    if(student.getPaid()==Integer.parseInt(getIntent().getStringExtra("topay")))
+                    {
+                        student.setStatus("Done");
+                    }else{
+                        student.setStatus("has Debts");
                     }
-                    else
-                    StudentDA.getInstance().students.get(id).setStatus("in training");
-
-
+                else
+                    student.setStatus("in training");
+myRef.child("student" + id).setValue(student);
             }
+
         });
-        int num = Integer.parseInt(getIntent().getStringExtra("topay")) - StudentDA.getInstance().students.get(id).getPaid();
+        int num = Integer.parseInt(getIntent().getStringExtra("topay")) - student.getPaid();
 
         rbAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,16 +166,16 @@ public class student_info extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (pay.getText().toString().isEmpty() || Integer.parseInt(pay.getText().toString()) <= num) {
-                    StudentDA.getInstance().students.get(id).setPaid(StudentDA.getInstance().students.get(id).getPaid() + Integer.parseInt(pay.getText().toString()));
-                    paid.setText("Paid: " + StudentDA.getInstance().students.get(id).getPaid());
-                    int num = Integer.parseInt(getIntent().getStringExtra("topay")) - StudentDA.getInstance().students.get(id).getPaid();
+                    student.setPaid(student.getPaid() + Integer.parseInt(pay.getText().toString()));
+                    paid.setText("Paid: " + student.getPaid());
+                    int num = Integer.parseInt(getIntent().getStringExtra("topay")) - student.getPaid();
                     from.setText("from: "+String.valueOf(num));
 
                     Toast.makeText(student_info.this, "Add successfully", Toast.LENGTH_SHORT).show();
 
-                    if (StudentDA.getInstance().students.get(id).getPaid() == Integer.parseInt(getIntent().getStringExtra("topay"))) {
-                        if (StudentDA.getInstance().students.get(id).getStatus().equalsIgnoreCase("has Debts")) {
-                            StudentDA.getInstance().students.get(id).setStatus("Done");
+                    if (student.getPaid() == Integer.parseInt(getIntent().getStringExtra("topay"))) {
+                        if (student.getStatus().equalsIgnoreCase("has Debts")) {
+                            student.setStatus("Done");
                             cons.setVisibility(View.INVISIBLE);
                         }
                         rbAdd.setVisibility(View.INVISIBLE);
@@ -135,21 +183,10 @@ public class student_info extends AppCompatActivity {
                 } else {
                     Toast.makeText(student_info.this, "try again", Toast.LENGTH_SHORT).show();
                 }
+                myRef.child("student" + id).setValue(student);
+
             }
         });
-
-    }
-
-    private void setVar(){
-       name=findViewById(R.id.name);
-         ginder=findViewById(R.id.genderv);
-         ID=findViewById(R.id.idv);
-         phone=findViewById(R.id.phonev);
-         status=findViewById(R.id.statusv);
-         corses=findViewById(R.id.corsev);
-         paid=findViewById(R.id.paidv);
-         to_pay=findViewById(R.id.payv);
-
 
     }
 

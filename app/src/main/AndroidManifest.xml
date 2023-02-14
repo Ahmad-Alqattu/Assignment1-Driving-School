@@ -88,7 +88,7 @@
         <activity
             android:name=".Login"
             android:exported="false"
-            android:label="Add Student">
+            android:label="Teachers Login">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

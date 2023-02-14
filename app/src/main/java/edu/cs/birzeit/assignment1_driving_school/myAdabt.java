@@ -129,7 +129,6 @@ int i=position;
                 Intent second =new Intent(ct,student_info.class);
                 second.putExtra("id", String.valueOf(i));
                 second.putExtra("topay", String.valueOf(to_bay));
-
                 ct.startActivity(second);
 
             }
